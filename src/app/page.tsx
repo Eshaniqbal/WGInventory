@@ -14,7 +14,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { getInventoryItems, getLowStockCount, getProductCount, getVendorCount } from "@/lib/data";
-import { Boxes, DollarSign, PackageWarning, Users } from "lucide-react";
+import { Boxes, DollarSign, AlertTriangle, Users } from "lucide-react";
 import { format } from "date-fns";
 
 export default async function Dashboard() {
@@ -60,7 +60,7 @@ export default async function Dashboard() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Low Stock Items</CardTitle>
-            <PackageWarning className="h-4 w-4 text-muted-foreground" />
+            <AlertTriangle className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{lowStockCount}</div>
