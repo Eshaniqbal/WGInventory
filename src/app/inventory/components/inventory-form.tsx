@@ -32,7 +32,7 @@ import {
 import { inventoryItemSchema } from "@/lib/schemas";
 import type { InventoryItemWithRelations, Category, Vendor } from "@/lib/types";
 import { createItemAction, updateItemAction } from "../actions";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 type InventoryFormProps = {
   isOpen: boolean;

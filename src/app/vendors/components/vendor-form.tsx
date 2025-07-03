@@ -25,7 +25,7 @@ import {
 import { vendorSchema } from "@/lib/schemas";
 import type { Vendor } from "@/lib/types";
 import { createVendorAction, updateVendorAction } from "../actions";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 type VendorFormProps = {
   isOpen: boolean;

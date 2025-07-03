@@ -25,7 +25,7 @@ import {
 import { categorySchema } from "@/lib/schemas";
 import type { Category } from "@/lib/types";
 import { createCategoryAction, updateCategoryAction } from "../actions";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 type CategoryFormProps = {
   isOpen: boolean;
