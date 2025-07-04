@@ -55,6 +55,9 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
           <ThemeToggle />
         </header>
         <main className="flex-1 p-6">{children}</main>
+        <footer className="w-full text-center text-xs text-muted-foreground py-4">
+          Designed and developed by <a href="https://www.minmind.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">MinMind</a>
+        </footer>
       </SidebarInset>
     </SidebarProvider>
   );
