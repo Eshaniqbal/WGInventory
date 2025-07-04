@@ -3,15 +3,14 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { PlusCircle } from "lucide-react";
-import type { Category, Vendor } from "@/lib/types";
+import type { InventoryItemWithRelations } from "@/lib/types";
 import { InventoryForm } from "@/app/inventory/components/inventory-form";
 
 interface DashboardActionsProps {
-  categories: Category[];
-  vendors: Vendor[];
+  // No props needed since categories are removed
 }
 
-export function DashboardActions({ categories, vendors }: DashboardActionsProps) {
+export function DashboardActions({}: DashboardActionsProps) {
   const [isFormOpen, setIsFormOpen] = React.useState(false);
 
   return (
@@ -24,8 +23,6 @@ export function DashboardActions({ categories, vendors }: DashboardActionsProps)
         isOpen={isFormOpen}
         setIsOpen={setIsFormOpen}
         item={null}
-        categories={categories}
-        vendors={vendors}
       />
     </>
   );

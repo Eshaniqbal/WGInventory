@@ -3,13 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "@/components/ui/sidebar";
-import { Boxes, LayoutDashboard, Tags, Users } from "lucide-react";
+import { Boxes, LayoutDashboard, Tags } from "lucide-react";
 
 const navItems = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
   { href: "/inventory", label: "Inventory", icon: Boxes },
-  { href: "/categories", label: "Categories", icon: Tags },
-  { href: "/vendors", label: "Vendors", icon: Users },
 ];
 
 export function SidebarNav() {

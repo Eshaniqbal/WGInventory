@@ -13,8 +13,15 @@ import { SidebarNav } from "./sidebar-nav";
 import { Button } from "../ui/button";
 import { Package2 } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { LogoutButton } from "../logout-button";
+import { getSession } from "@/lib/auth";
 
 export function MainLayout({ children }: { children: React.ReactNode }) {
+  let username = "";
+  if (typeof window !== "undefined") {
+    const session = getSession();
+    username = session.username || "";
+  }
   return (
     <SidebarProvider>
       <Sidebar>
@@ -28,8 +35,14 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
           <SidebarNav />
         </SidebarContent>
         <SidebarFooter className="p-2">
-           <div className="flex w-full justify-center group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-2">
-            <ThemeToggle />
+          <div className="flex w-full flex-col items-center gap-2 group-data-[collapsible=icon]:p-2">
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <LogoutButton />
+            </div>
+            {username && (
+              <div className="text-xs text-muted-foreground mt-1">Signed in as <span className="font-semibold">{username}</span></div>
+            )}
           </div>
         </SidebarFooter>
       </Sidebar>

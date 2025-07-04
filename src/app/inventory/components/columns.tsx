@@ -123,13 +123,6 @@ export const getColumns = (
     ),
   },
   {
-    accessorKey: "category.name",
-    header: "Category",
-    filterFn: (row, id, value) => {
-        return value.includes(row.getValue(id))
-    },
-  },
-  {
     accessorKey: "quantity",
     header: "Quantity",
   },
@@ -144,13 +137,6 @@ export const getColumns = (
       }).format(amount);
 
       return <div className="font-medium">{formatted}</div>;
-    },
-  },
-  {
-    accessorKey: "vendor.name",
-    header: "Vendor",
-    filterFn: (row, id, value) => {
-        return value.includes(row.getValue(id))
     },
   },
   {

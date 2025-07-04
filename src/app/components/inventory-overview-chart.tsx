@@ -35,7 +35,7 @@ export function InventoryOverviewChart({ data }: InventoryOverviewChartProps) {
     <Card>
       <CardHeader>
         <CardTitle>Inventory Overview</CardTitle>
-        <CardDescription>Quantity of items per category.</CardDescription>
+        <CardDescription>Quantity of each product.</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="min-h-[200px] w-full">

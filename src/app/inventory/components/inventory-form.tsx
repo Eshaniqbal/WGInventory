@@ -30,7 +30,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { inventoryItemSchema } from "@/lib/schemas";
-import type { InventoryItemWithRelations, Category, Vendor } from "@/lib/types";
+import type { InventoryItemWithRelations } from "@/lib/types";
 import { createItemAction, updateItemAction } from "../actions";
 import { useToast } from "@/hooks/use-toast";
 
@@ -38,8 +38,6 @@ type InventoryFormProps = {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   item: InventoryItemWithRelations | null;
-  categories: Category[];
-  vendors: Vendor[];
 };
 
 type InventoryFormValues = z.infer<typeof inventoryItemSchema>;
@@ -48,16 +46,12 @@ export function InventoryForm({
   isOpen,
   setIsOpen,
   item,
-  categories,
-  vendors,
 }: InventoryFormProps) {
   const { toast } = useToast();
   const form = useForm<InventoryFormValues>({
     resolver: zodResolver(inventoryItemSchema),
     defaultValues: {
       name: "",
-      categoryId: "",
-      vendorId: "",
       quantity: 0,
       price: 0,
       fabric: "",
@@ -73,8 +67,6 @@ export function InventoryForm({
           ? { ...item }
           : {
               name: "",
-              categoryId: "",
-              vendorId: "",
               quantity: 0,
               price: 0,
               fabric: "",
@@ -129,58 +121,6 @@ export function InventoryForm({
               )}
             />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="categoryId"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Category</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a category" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {categories.map((cat) => (
-                          <SelectItem key={cat.id} value={cat.id}>
-                            {cat.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="vendorId"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Vendor</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a vendor" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {vendors.map((ven) => (
-                          <SelectItem key={ven.id} value={ven.id}>
-                            {ven.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField
                 control={form.control}

@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import { addCategory, deleteCategory, updateCategory } from "@/lib/data";
+import { addCategory, deleteCategory, updateCategory, getCategories } from "@/lib/data";
 import { categorySchema } from "@/lib/schemas";
 
 export async function createCategoryAction(

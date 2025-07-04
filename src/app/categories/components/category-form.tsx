@@ -26,6 +26,7 @@ import { categorySchema } from "@/lib/schemas";
 import type { Category } from "@/lib/types";
 import { createCategoryAction, updateCategoryAction } from "../actions";
 import { useToast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
 
 type CategoryFormProps = {
   isOpen: boolean;
@@ -41,6 +42,7 @@ export function CategoryForm({
   category,
 }: CategoryFormProps) {
   const { toast } = useToast();
+  const router = useRouter();
   const form = useForm<CategoryFormValues>({
     resolver: zodResolver(categorySchema),
     defaultValues: { name: "" },
@@ -62,6 +64,7 @@ export function CategoryForm({
     if (result.success) {
       toast({ title: "Success", description: result.success });
       setIsOpen(false);
+      router.refresh();
     } else {
       toast({ variant: "destructive", title: "Error", description: result.error });
     }
