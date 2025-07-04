@@ -39,11 +39,11 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="absolute top-4 right-4">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-background px-4 relative">
+      <div className="fixed top-4 right-4 z-20">
         <ThemeToggle />
       </div>
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-md shadow-lg">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">WG Inventory</CardTitle>
           <p className="text-gray-600 dark:text-gray-300">Admin Login</p>
@@ -61,6 +61,7 @@ export default function LoginPage() {
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Enter username"
                 required
+                autoComplete="username"
               />
             </div>
             <div>
@@ -74,6 +75,7 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password"
                 required
+                autoComplete="current-password"
               />
             </div>
             <Button
